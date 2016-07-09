@@ -8,24 +8,19 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button pmBtn;
-    private Button shBtn;
-    private Button bibBtn;
-    private Button myamBtn;
-    private Button guBtn;
-    private Button capstoneBtn;
+    private static Toast mToast = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        pmBtn = (Button) findViewById(R.id.main_activity_popular_movies_btn);
-        shBtn = (Button) findViewById(R.id.main_activity_stock_hawk_btn);
-        bibBtn = (Button) findViewById(R.id.main_activity_build_it_bigger_btn);
-        myamBtn = (Button) findViewById(R.id.main_activity_make_your_app_material);
-        guBtn = (Button) findViewById(R.id.main_activity_go_ubiquitous_btn);
-        capstoneBtn = (Button) findViewById(R.id.main_activity_capstone_btn);
+        Button pmBtn = (Button) findViewById(R.id.main_activity_popular_movies_btn);
+        Button shBtn = (Button) findViewById(R.id.main_activity_stock_hawk_btn);
+        Button bibBtn = (Button) findViewById(R.id.main_activity_build_it_bigger_btn);
+        Button myamBtn = (Button) findViewById(R.id.main_activity_make_your_app_material);
+        Button guBtn = (Button) findViewById(R.id.main_activity_go_ubiquitous_btn);
+        Button capstoneBtn = (Button) findViewById(R.id.main_activity_capstone_btn);
 
         pmBtn.setOnClickListener(this);
         shBtn.setOnClickListener(this);
@@ -40,22 +35,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.main_activity_popular_movies_btn:
-                showToastPopularMovie();
+                show(getString(R.string.PopularMovies));
                 break;
             case R.id.main_activity_stock_hawk_btn:
-                showToastPopularMovie();
+                show(getString(R.string.StockHawk));
                 break;
             case R.id.main_activity_build_it_bigger_btn:
-                showToastPopularMovie();
+                show(getString(R.string.BuildBigger));
                 break;
             case R.id.main_activity_make_your_app_material:
-                showToastPopularMovie();
+                show(getString(R.string.MakeYourAPPMaterial));
                 break;
             case R.id.main_activity_go_ubiquitous_btn:
-                showToastPopularMovie();
+                show(getString(R.string.GoQbiquitous));
                 break;
             case R.id.main_activity_capstone_btn:
-                showToastPopularMovie();
+                show(getString(R.string.Capstone));
                 break;
             default:
                 break;
@@ -63,9 +58,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public void showToastPopularMovie() {
-        Toast toast = Toast.makeText(getApplicationContext(), "Popular Movie Message", Toast.LENGTH_SHORT);
-        toast.show();
+    private void show(String msg){
+        if (mToast == null){
+            mToast = Toast.makeText(this,msg,Toast.LENGTH_SHORT);
+        }else {
+            mToast.setText(msg);
+        }
+        mToast.show();
     }
 
 

@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">UdacityStudy</string>
+
+    <!-- MainActivity -->
+    <string name="MyNanoDegreeApps">My NanoDegree Apps!</string>
+    <string name="PopularMovies">POPULAR MOVIES</string>
+    <string name="StockHawk">STOCK_HAWK</string>
+    <string name="BuildBigger">BUILD BIGGER</string>
+    <string name="MakeYourAPPMaterial">MAKE YOUR APP MATERIAL</string>
+    <string name="GoQbiquitous">GO QBIQUITOUS</string>
+    <string name="Capstone">CAPSTONE</string>
+
+
 </resources>
